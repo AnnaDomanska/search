@@ -1,0 +1,34 @@
+<mat-card>
+  <mat-card-title>
+Beers list
+  </mat-card-title>
+  <mat-card-content>
+    <mat-list role="list"><mat-list-item role="listitem" *ngFor="let item of beers$ | async">{{item.name}}</mat-list-item></mat-list>
+  </mat-card-content>
+</mat-card>
+
+<form [formGroup]="pagination">
+
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Choose a Page</mat-label>
+      <mat-select formControlName="page">
+        <mat-option *ngFor="let item of pageOptions$ | async" [value]="item">
+          {{item}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Choose a limit per Page</mat-label>
+      <mat-select formControlName="perPage" >
+        <mat-option *ngFor="let item of perPageOptions$ | async" [value]="item">
+          {{item}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</form>
+
+

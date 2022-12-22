@@ -1,14 +1,11 @@
 <mat-card>
   <mat-card-content>
-<form [formGroup]="search">
   <div>
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill" >
       <mat-label>Country</mat-label>
-      <input matInput type="text" placeholder="Country" formControlName="country" required>
-      <mat-error *ngIf="search.get('country')!.invalid">country is invalid</mat-error>
+      <input matInput type="text" placeholder="Country" [formControl]="search" required>
     </mat-form-field>
   </div>
-</form>
   </mat-card-content>
 </mat-card>
 
@@ -20,11 +17,9 @@
   </mat-list-item>
 </mat-list>
 
-  <ng-template #emptyState>
-      Did not find any universities for this country :(
-    </ng-template>
-
-
+<ng-template #emptyState>
+  Did not find any universities for this country :(
+</ng-template>
 
   </mat-card-content>
 </mat-card>
